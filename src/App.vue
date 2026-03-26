@@ -1,4 +1,5 @@
 <script setup>
+import ContentArea from './components/ContentArea.vue';
 import Header from './components/Header.vue';
 import SideBar from './components/SideBar.vue';
 
@@ -6,12 +7,10 @@ import SideBar from './components/SideBar.vue';
 
 <template>
   <div class="app-wrapper">
-    <Header></Header>
+    <Header/>
     <div class="main-layout">
-      <SideBar></SideBar>
-      <main class="content-area">
-        <h1>Area</h1>
-      </main>
+      <SideBar/>
+      <ContentArea />
     </div>
   </div>
   
@@ -29,10 +28,5 @@ import SideBar from './components/SideBar.vue';
   display: grid;
   grid-template-columns: 310px 1fr;
   flex: 1;
-}
-
-.content-area {
-  overflow-y: auto;
-  padding: 0 40px;
 }
 </style>

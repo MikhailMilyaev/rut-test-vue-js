@@ -109,6 +109,7 @@
 .nav__item {
   font-size: 18px;
   font-weight: 600;
+  line-height: 18px;
   color: var(--color-text-inactive);
   cursor: pointer;
   transition: color 0.2s ease;
@@ -162,6 +163,7 @@
     color: var(--color-text-primary);
     font-size: 18px;
     font-weight: 600;
+    line-height: 18px;
 }
 
 .logout:hover {
