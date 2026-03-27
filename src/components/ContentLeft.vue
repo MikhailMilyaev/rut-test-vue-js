@@ -101,6 +101,26 @@ const prevSlide = () => {
         <p class="text-shape__text">Ведется подготовка территории строительтва 7 этапа, в том числе в зоне строящихся путепроводов на ПК 5734 и ПК 6103, моста на ПК 6020</p>
         <p class="text-shape__text">Ведется подготовка территории строительтва 6 этапа, в том числе в зоне строящегося моста через р.Шоша на ПК 5059 и ПК 5335</p>
     </div>
+
+    <div class="use-of-funds">
+    <div class="construction__header">
+        <h2 class="construction__header-text">Использование средств</h2>
+    </div>
+
+    <div class="use-of-funds__content">
+        <div class="use-of-funds__info">
+            <span class="use-of-funds__label">13,8 использовано</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-bar__fill" style="width: 7.9%"></div>
+            
+            <span class="progress-bar__percent">7,9%</span>
+        </div>
+
+        <p class="use-of-funds__subtext">175,1 из 1755,9 млрд привлечено</p>
+    </div>
+</div>
   </div>
 </template>
 
@@ -317,5 +337,71 @@ const prevSlide = () => {
     font-weight: 400;
     color: var(--color-text-primary-inverse);
     padding: 20px;
+}
+
+.use-of-funds {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 12px;
+    padding-bottom: 24px; 
+}
+
+.use-of-funds__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.use-of-funds__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 8px;
+}
+
+.use-of-funds__label {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 600;
+    color: var(--сolor-text-succes);
+}
+
+.use-of-funds__percent {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--color-text-primary-inverse);
+}
+
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 32px; 
+    background-color: var(--color-bg-common-dark-light); 
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+}
+
+.progress-bar__fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--сolor-text-succes);
+    z-index: 1;
+}
+
+
+.use-of-funds__subtext {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    color: var(--color-text-primary);
 }
 </style>
