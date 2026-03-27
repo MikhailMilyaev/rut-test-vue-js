@@ -78,8 +78,8 @@
     gap: 8px;
     background-color: var(--color-bg-secondary-2);
     border: none;
-    padding: 3px 5px;
-    border-radius: 2px;
+    padding: 12px 15px;
+    border-radius: 8px;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.05);
 }
@@ -106,14 +106,14 @@
     justify-content: center;
     border: none;
     background: none;
-    border-radius: 2px;
+    border-radius: 8px;
     height: 48px;
     font-size: 18px;
     font-weight: 600;
     line-height: 20px;
     background-color: var(--color-bg-secondary);
     color: var(--color-text-primary);
-    padding: 10px 4px;
+    padding: 10px 16px;
     
     cursor: pointer;
     transition: all 0.3s ease;
