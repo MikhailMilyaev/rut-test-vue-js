@@ -22,7 +22,7 @@ import ContentRight from './ContentRight.vue';
   flex-direction: column;
   gap: 40px;
   overflow-y: auto;
-  padding: 20px 40px;
+  padding: 20px 40px 40px 40px;
   height: 100%;
 }
 

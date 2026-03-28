@@ -2,18 +2,23 @@
 import { ref } from 'vue';
 
 const slides = ref([
-  { id: 1, title: '7 этап', url: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600' },
-  { id: 2, title: '8 этап', url: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600' }
+  { id: 1, title: '6 этап', url: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80' },
+  { id: 2, title: '7 этап', url: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80' },
+  { id: 3, title: '8 этап', url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80' }
 ]);
 
 const currentIndex = ref(0)
 
 const nextSlide = () => {
-    currentIndex.value = (currentIndex.value + 1) % slides.value.length
+    if (currentIndex.value < slides.value.length - 1) {
+        currentIndex.value++
+    }
 }
 
 const prevSlide = () => {
-  currentIndex.value = (currentIndex.value - 1 + slides.value.length) % slides.value.length;
+    if (currentIndex.value > 0) {
+        currentIndex.value--
+    }
 };
 </script>
 
@@ -30,13 +35,13 @@ const prevSlide = () => {
             </div>
 
             <div class="construction__arrows arrows">
-                <button @click="prevSlide" class="arrows__btn">
+                <button @click="prevSlide" class="arrows__btn" :disabled="currentIndex === 0">
                     <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L2.41421 7L7.70711 12.2929C8.09763 12.6834 8.09763 13.3166 7.70711 13.7071C7.31658 14.0976 6.68342 14.0976 6.29289 13.7071L0.292893 7.70711C-0.0976311 7.31658 -0.0976311 6.68342 0.292893 6.29289L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893Z" fill="#E3E3E3"/>
                     </svg>
                 </button>
                 <span class="arrows__text">{{ slides[currentIndex].title }}</span>
-                <button @click="nextSlide" class="arrows__btn">
+                <button @click="nextSlide" class="arrows__btn" :disabled="currentIndex === slides.length - 1">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.75628 5.29289C9.09799 4.90237 9.65201 4.90237 9.99372 5.29289L15.2437 11.2929C15.5854 11.6834 15.5854 12.3166 15.2437 12.7071L9.99372 18.7071C9.65201 19.0976 9.09799 19.0976 8.75628 18.7071C8.41457 18.3166 8.41457 17.6834 8.75628 17.2929L13.3876 12L8.75628 6.70711C8.41457 6.31658 8.41457 5.68342 8.75628 5.29289Z" fill="#E3E3E3"/>
                     </svg>
@@ -49,12 +54,12 @@ const prevSlide = () => {
                 <h4 class="stats-title">На строительных объектах задействовано:</h4>
                 <div class="stats-row">
                     <div class="stat-col">
-                        <div class="stat-value text-teal">117</div>
+                        <div class="stat-value ">117</div>
                         <div class="stat-sub">из н/д</div>
                         <div class="stat-label">техники</div>
                     </div>
                     <div class="stat-col">
-                        <div class="stat-value text-teal">402</div>
+                        <div class="stat-value">402</div>
                         <div class="stat-sub">из н/д</div>
                         <div class="stat-label">человек</div>
                     </div>
@@ -119,6 +124,51 @@ const prevSlide = () => {
         </div>
 
         <p class="use-of-funds__subtext">175,1 из 1755,9 млрд привлечено</p>
+    </div>
+</div>
+
+<div class="permission-block">
+    <div class="construction__header">
+        <h2 class="construction__header-text">Разрешение на строительство</h2>
+    </div>
+
+    <div class="permission-block__content">
+        <div class="permission-block__info">
+            <div class="permission-block__list">
+                <div class="permission-block__item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <circle cx="8" cy="8" r="8" fill="#2AB4AE"/>
+                    </svg>
+                    <span class="permission-block__label">0 разрешений на строительство</span>
+                </div>
+                <div class="permission-block__item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <circle cx="8" cy="8" r="8" fill="#7B57E0"/>
+                    </svg>
+                    <span class="permission-block__label">0 положительных заключений ГГЭ</span>
+                </div>
+            </div>
+
+            <button class="button-dark">
+                <span class="button-dark__text">Подробнее</span> 
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5.87521 14.1247L14.1248 5.87516M14.1248 5.87516H5.87521M14.1248 5.87516V14.1247" stroke="#E3E3E3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="permission-block__chart-wrap">
+            <div class="permission-block__chart chart-big">
+                <svg class="chart-big__svg" width="163" height="163" viewBox="0 0 163 163" fill="none">
+                    <path d="M163 81.5C163 126.511 126.511 163 81.5 163C36.4888 163 0 126.511 0 81.5C0 36.4888 36.4888 0 81.5 0C126.511 0 163 36.4888 163 81.5ZM16.3 81.5C16.3 117.509 45.491 146.7 81.5 146.7C117.509 146.7 146.7 117.509 146.7 81.5C146.7 45.491 117.509 16.3 81.5 16.3C45.491 16.3 16.3 45.491 16.3 81.5Z" fill="#414247"/>
+                </svg>
+                
+                <div class="chart-big__data">
+                    <div class="chart-big__value">0</div>
+                    <div class="chart-big__label">из 11</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
   </div>
@@ -197,6 +247,15 @@ const prevSlide = () => {
     background-color: rgba(85, 86, 91, 1);
 }
 
+.arrows__btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.arrows__btn:disabled:hover {
+    background-color: var(--color-bg-common-dark-light);
+}
+
 .arrows__text {
     font-size: 24px;
     font-weight: 600;
@@ -243,13 +302,15 @@ const prevSlide = () => {
 }
 
 .stat-value {
+    color: var(--сolor-text-succes);
     font-size: 32px;
     font-weight: 600;
     line-height: 38px;
 }
 
-.text-teal { color: var(--сolor-text-succes) }
-.text-white { color: var(--color-text-primary-inverse) }
+.text-white {
+    color: var(--color-text-primary-inverse);
+}
 
 .stat-sub {
     font-size: 24px;
@@ -342,9 +403,8 @@ const prevSlide = () => {
 .use-of-funds {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 28px;
     border-radius: 12px;
-    padding-bottom: 24px; 
 }
 
 .use-of-funds__content {
@@ -380,7 +440,7 @@ const prevSlide = () => {
     background-color: var(--color-bg-common-dark-light); 
     border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     
     display: flex;
     align-items: center;
@@ -397,11 +457,125 @@ const prevSlide = () => {
     z-index: 1;
 }
 
-
 .use-of-funds__subtext {
     font-size: 14px;
     font-weight: 600;
     line-height: 14px;
     color: var(--color-text-primary);
+}
+
+.permission-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.permission-block__content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    width: 540px;
+}
+
+.permission-block__info {
+    display: flex;
+    flex-direction: column;
+    width: 319px; 
+    height: 163px;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.permission-block__chart-wrap {
+    width: 201px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 19px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.permission-block__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.permission-block__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.permission-block__label {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-text-primary); 
+    line-height: 20px;
+}
+
+.button-dark {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--color-bg-secondary-2);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.button-dark__text {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    color: var(--color-text-primary);
+}
+
+.button-dark:hover { 
+    background-color: rgba(255,255,255,0.1); 
+}
+
+.chart-big {
+    position: relative;
+    width: 163px;
+    height: 163px;
+    flex-shrink: 0;
+}
+
+.chart-big__svg {
+    display: block;
+}
+
+.chart-big__data {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    text-align: center;
+}
+
+.chart-big__value {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--сolor-text-succes);
+    line-height: 46px; 
+}
+
+.chart-big__label {
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(216, 216, 216, 1);
+    line-height: 24px;
 }
 </style>
