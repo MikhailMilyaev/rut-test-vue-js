@@ -24,21 +24,26 @@ import ContentRight from './ContentRight.vue';
   overflow-y: auto;
   padding: 20px 40px 40px 40px;
   height: 100%;
+  width: 100%;
+  background-color: var(--color-bg-primary);
 }
 
 .content-area__grid {
     display: grid;
-    grid-template-columns: 540px 1fr;
+    grid-template-columns: 540px 1fr; 
     gap: 40px;
-    max-width: 1530px;
     width: 100%;
+    max-width: 1920px; 
+    margin: 0 auto; 
 }
 
 .content-area__left {
     width: 540px;
+    flex-shrink: 0;
 }
 
 .content-area__right {
     min-width: 0;
+    width: 100%;
 }
 </style>
